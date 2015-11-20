@@ -1,0 +1,192 @@
+.main .container{
+    overflow: visible;
+}
+.qixi{
+    clear: both;
+    margin: 8px auto;
+    position: relative;
+    /*border: 1px solid #dedede;*/
+}
+.qixi .head{
+    height: 47px;
+    line-height: 47px;
+    position: relative;
+    background: url(http://www.kadang.cn/static/mall/index/title-b2.jpg) no-repeat;
+    padding-left: 160px;
+    border-bottom: 1px solid #dedede;
+}
+.qixi .head .page{
+    position: absolute;
+    right: 20px;
+}
+.qixi .page a{
+    background: url(http://res.dev.kadang.cn/img/mall/list/listinco.png) no-repeat;
+    position: absolute;
+}
+.qixi .page a{
+    width: 6px;
+    height: 9px;
+    cursor: pointer;
+    top: 19px;
+    overflow: hidden;
+}
+.qixi .page .prev{
+    background-position: 0 -8px;
+    left: -15px;
+}
+
+.qixi .page .next{
+    background-position: -6px -8px;
+    right: -15px;
+}
+
+.qixi .page a.prev{
+    background-position: -12px -8px;
+}
+.qixi .page a.prev:hover{
+    background-position: 0px -17px;
+}
+
+.qixi .page a.next{
+    background-position: -18px -8px;
+}
+.qixi .page a.next:hover{
+    background-position: -6px -17px;
+}
+
+
+.qixi .head ul{
+    width: 50%;
+    float: left;
+    font-size: 14px;
+}
+.qixi .head ul li{
+    font-family: 'microsoft yahei';
+    width: 85px;
+    float: left;
+    cursor: pointer;
+    text-align: center;
+    border-left: 1px #dedede solid;
+}
+.qixi .head ul li.first{
+    border-left: 0;
+}
+.qixi .head ul a.first{
+    border-left: 0;
+}
+.qixi .head ul li.active{
+    color: #895fff;
+}
+.qixi .qixiCon{
+    position: relative;
+    border-right: 1px solid #dedede;
+}
+
+
+.qixi .qixiCon ul{
+    position: relative;
+}
+.qixi .qixiCon li{
+    display: none;
+    border:1px #dedede solid;
+    border-top: 0;
+    border-right: 0;
+}
+.qixi .qixiCon li a{
+    display: block;
+    width: 199px;
+    height: 200px;
+    float: left;
+    border: 1px solid #dedede;
+    border-right: 0;
+    border-bottom: 0;
+    margin-left: -1px;
+    margin-top: -1px;
+    position: relative;
+}
+@-webkit-keyframes hoverimg {
+    0% {
+        opacity: .6
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+@keyframes hoverimg {
+    0% {
+        opacity: .6
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+.qixi .qixiCon li a:hover img {
+    -moz-animation: hoverimg .1s ease-in-out;
+    -webkit-animation: hoverimg .1s ease-in-out;
+    -o-animation: hoverimg .1s ease-in-out;
+    animation: hoverimg .1s ease-in-out;
+}
+.qixi .qixiCon a.first{
+    width: 398px;
+    height: 200px;
+}
+#J_qixiDomCon .slides{
+    display: none;
+}
+@media (max-width:1224px){
+    .qixi .qixiCon li a.ipad{
+        display: none !important;
+    }
+    .qixi .qixiCon li a{
+        width: 197px !important;
+    }
+    .qixi .qixiCon li a.first{
+        width: 394px !important;
+    }
+}
+
+.qixiCon .bx-controls{
+    display: none;
+}
+.qixi .touxiangLeft{
+    position: absolute;
+    width: 109px;
+    height: 177px;
+    left: -100px;
+    background: url(/img/mall/index/qixil.png) no-repeat;
+    z-index: 100;
+    top: 30px;
+}
+.qixi .touxiangRight{
+    position: absolute;
+    width: 177px;
+    height: 169px;
+    right: -158px;
+    top: 160px;
+    background: url(/img/mall/index/qixir.png) no-repeat;
+    z-index: 100;
+
+}
+#J_sildeCon{
+    min-height: 401px;
+    _height:401px;
+}
+.qixi .item span {
+    position: absolute;
+    left: 20px;
+    bottom: 15px;
+    color: #999;
+}
+.qixi .item strong{
+    position: absolute;
+    right: 20px;
+    bottom: 15px;
+    color: #999;
+    color: #e44715;
+    font-weight: bold;
+}
+.qixi .item.first span{
+    left: 220px;
+}

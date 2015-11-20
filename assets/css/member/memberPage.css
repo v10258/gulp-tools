@@ -1,0 +1,180 @@
+#container .layout{
+    background: #fff;
+}
+.wrap-shadow{
+    background: #fff;
+}
+.member-worp{
+    padding: 0 15px;
+}
+.member-contains .member-head-top{
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #e44715;
+    font-weight: bold;
+    border-bottom: 2px solid #f5705d;
+}
+.member-contains .member-head-top a{
+    margin: 0 5px;
+    color: #e44715;
+}
+.member-contains .member-con-top{
+    height: 25px;
+    line-height: 25px;
+}
+.member-contains .member-con-top .top-right{
+    float: right;
+    font-weight: bold;
+    color: #333;
+}
+.member-contains .top-right a{
+    color: #333;
+    font-weight: bold;
+}
+.comment-list .comment-con{
+    padding-bottom: 70px;
+    margin-bottom: 40px;
+    border-bottom: 1px dashed #dedede;
+}
+.comment-list .good-left{
+    width: 200px;
+    float: left;
+}
+.comment-list .good-left a p{
+    font-weight: bold;
+    color: #6da4e3;
+}
+.comment-list .good-left .good-pic{
+    width: 200px;
+    height: 200px;
+    border: 1px solid #eee;
+}
+.comment-list .good-left .leixing{
+    color: #ccc;
+}
+.comment-list .good-con{
+    margin-left: 250px;
+}
+.good-con .appraise-top{
+    height: 25px;
+    line-height: 25px;
+    margin-bottom: 15px;
+}
+.appraise-top lable{
+    width: 135px;
+    color: #666;
+    float: left;
+    padding-left: 25px;
+    background: url('/img/mall/member/appraise.png') -999px -999px no-repeat;
+}
+.appraise-top .item-1{
+    background-position: 0 -5px;
+}
+.appraise-top .item-2{
+    background-position: 0 -47px;
+}
+.appraise-top .item-3{
+    background-position: 0 -88px;
+}
+
+.appraise-top input{
+    vertical-align: middle;
+}
+.appraise-textarea{
+    width: 563px;
+    position: relative;
+    margin-top: 10px;
+    overflow: hidden;
+}
+.appraise-textarea .areatext{
+    width: 545px;
+    height: 115px;
+    background: #fff;
+    padding: 5px 8px!important;
+    color: #333;}
+
+.appraise-textarea .text-num{
+    color: #ccc;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+
+.appraise-textarea .good-img{
+    width: 563px;
+    background: #eee;
+    height: 40px;
+    position: relative;
+    top: -6px;
+    overflow: hidden;
+}
+.appraise-textarea .upload-bt{
+    float: left;
+    padding: 5px 20px;
+    border: 0;
+    color: #fff;
+    border-radius: 2px;
+    cursor: pointer;
+    background: #6da4e3;
+    margin-top: 6px;
+    margin-left: 10px;
+}
+.appraise-textarea .good-img-com{
+    margin-left: 100px;
+    padding-top: 4px;
+    line-height: 30px;
+    color: #eee;
+
+}
+.appraise-textarea .img-list-con{
+    float: left;
+}
+.appraise-textarea .img-list-con span.img-item{
+    position: relative;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    width: 32px;
+    height: 32px;
+    margin: 0 5px;
+    overflow: hidden;
+}
+.appraise-textarea .img-list-con span.delete-img{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.8;
+    color: #fff;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    display: none;
+}
+.appraise-textarea .img-list-con img{
+    width: 32px;
+    height: 32px;
+}
+.appraise-textarea .img-num{
+    color: #999;
+}
+.appraise-textarea .current-num{
+    display: none;
+}
+.sub-bottom{
+    padding-bottom: 50px;
+}
+.sub-bottom input[type="submit"].sub-bt{
+    margin-left: 240px;
+    background: #e44715;
+    color: #fff;
+    width: 80px;
+    height: 46px;
+    font-size: 16px;
+    font-family: 'microsoft yahei';
+}
+.sub-bottom input[type="submit"].sub-bt:focus,.sub-bottom input[type="submit"].sub-bt:hover{
+    background: #D13908;
+}
