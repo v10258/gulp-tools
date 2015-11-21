@@ -1,14 +1,15 @@
-@import "../base.less";
-@import "../variables.less";
-@import "../utils.less";
-@import "../buttons.less";
+@import "./mixins/variables.scss";
+@import "./mixins/utils.scss";
+@import "./mixins/buttons.scss";
+@import "../../widgets/site-topbar/topbar.scss";
+@import "../../widgets/site-header/header.scss";
 
 
 body {
-    color: @text-color-base;
+    color: $text-color-base;
 }
 a {
-    color: @text-color-base;
+    color: $text-color-base;
 }
 .wrapper { width: 1240px; margin-left:auto; margin-right: auto;}
 
@@ -19,12 +20,12 @@ a {
     .crumbs-title {
         display: inline-block;
         max-width: 500px;
-        color: @text-color-dark;
+        color: $text-color-dark;
         vertical-align: middle;
     }
 
     a {
-        color: @text-color-light;
+        color: $text-color-light;
     }
 }
 
@@ -34,10 +35,10 @@ a {
     width: 680px;
 
     .mod-booth {
-        .center();
-        .square(600px);
-        .mt(30px);
-        .mb(30px);
+        @include center();
+        @include square(600px);
+        @include mt(30px);
+        @include mb(30px);
     }
 
     .mod-thumb {
@@ -90,7 +91,7 @@ a {
         position: relative;
         padding-top: 20px;
         padding-bottom: 10px;
-        border-bottom: 1px solid @border-color-base;
+        border-bottom: 1px solid $border-color-base;
 
         h1 {
             font-size:30px;
@@ -101,16 +102,16 @@ a {
 
         .vm-info {
             line-height: 2;
-            .ft(16px);
+            @include ft(16px);
         }
 
         .vm-price {
-            color: @text-color-recommon;
+            color: $text-color-recommon;
             font-size: 16px;
         }
 
         .vm-party {
-            .posa();
+            position: absolute;
             top: 20px;
             right: 0;
             max-width: 150px;
@@ -119,7 +120,7 @@ a {
 
             span {
                 float: right;
-                color:@text-color-recommon;
+                color:$text-color-recommon;
             }
 
             .vm-party-more {
@@ -146,7 +147,7 @@ a {
     .mod-prop {
         dt {
             line-height: 40px;
-            color: @text-color-dark;
+            color: $text-color-dark;
         }
 
         dd {
@@ -171,7 +172,7 @@ a {
             text-align: center;
             border: 1px solid #b8b7bd;
             border-radius: 4px;
-            color: @text-color-dark;
+            color: $text-color-dark;
             text-decoration: none;
         }
     }
@@ -186,7 +187,7 @@ a {
     }
 
     .mod-amount .count-tip {
-        color: @text-color-light;
+        color: $text-color-light;
         padding-left: 20px;
         line-height: 26px;
     }
@@ -204,8 +205,8 @@ a {
         z-index: 1;
         height: 50px;
         width: 182px;
-        border: 1px solid @border-color-base;
-        border-radius: @border-radius-small;
+        border: 1px solid $border-color-base;
+        border-radius: $border-radius-small;
         overflow: hidden;
         float: left;
     }
@@ -229,17 +230,17 @@ a {
         font-size: 18px;
         border: none;
         text-align: center;
-        color: @text-color-dark;
+        color: $text-color-dark;
     }
 
     .mod-quantity-control .vm-minus {
         left: 0;
-        border-right: 1px solid @border-color-base;
+        border-right: 1px solid $border-color-base;
     }
 
     .mod-quantity-control .vm-plus {
         right: 0;
-        border-left: 1px solid @border-color-base;
+        border-left: 1px solid $border-color-base;
     }
 
     .mod-buy {
@@ -255,11 +256,11 @@ a {
 }
 
 .detail {
-    .mt(80px);
+    @include mt(80px);
 }
 
 .detail-tab {
-    border-bottom: 1px solid @border-color-base;
+    border-bottom: 1px solid $border-color-base;
     li {
         float: left;
         position: relative;
@@ -270,19 +271,19 @@ a {
             padding:0 20px;
             line-height: 60px;
             font-size: 24px;
-            color: @text-color-dark;
+            color: $text-color-dark;
             text-decoration: none;
             
             &:hover,
             &.current {
-                color: @text-color-highlight
+                color: $text-color-highlight
             }
         }
     }
 }
 
 .detail-content {
-    .mt(30px);
+    @include mt(30px);
 }
 
 
