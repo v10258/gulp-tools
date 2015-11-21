@@ -1,8 +1,8 @@
 @import "./mixins/variables.scss";
 @import "./mixins/utils.scss";
 @import "./mixins/buttons.scss";
-@import "../../widgets/site-topbar/topbar.scss";
-@import "../../widgets/site-header/header.scss";
+@import "../widgets/topbar/topbar.scss";
+@import "../widgets/header/header.scss";
 
 
 body {

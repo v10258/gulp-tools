@@ -12,7 +12,7 @@ console.log('__dirname', __dirname);
 
 module.exports = {
     entry: {
-        main: './assets/js/detail/main.js',
+        main: './assets/js/detail.js',
         vendor: ['jquery']
     },
     output: {

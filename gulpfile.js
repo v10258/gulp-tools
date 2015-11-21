@@ -4,7 +4,6 @@ var plugins = require('gulp-load-plugins')();
 var spritesmith = require('gulp.spritesmith');
 var pngquant = require('imagemin-pngquant');
 
-//var webpack = require("webpack");
 var webpackConfig = require('./webpack.config.js');
 
 var browserSync = require('browser-sync');
@@ -15,10 +14,10 @@ var path = require('path');
 
 var paths = {
     src: 'assets',          // css js img less 资源目录 开头和结尾不需要/
-    subdir: '/detail',      // css js img less 资源目录 明确指向可以使开发过程中只处理此目录下的文件 请以/开头 结尾不需要/
-    html: 'pages/**/*.html', // html 页面 
+    subdir: '/detail',      // css js img less 资源目录 明确指向可以使开发过程中只处理此目录下的文件提高效率 请以/开头 结尾不需要/
+    html: 'pages',          // 页面模板文件目录
     dist: 'dist',           // build 构建目录
-    rev: 'rev'             // 版本构建目录
+    rev: 'rev'              // 版本构建目录
 };
 
 // mock 中间件
@@ -65,13 +64,13 @@ var mock = function(req, res, next) {
 
 
 // 编译Less 合并、压缩、生成css
-gulp.task('less', function() {
-    console.log(plugins.util.colors.green('compile less into css'));
+gulp.task('sass', function() {
+    console.log(plugins.util.colors.green('compile sass into css'));
 
-    return gulp.src(paths.src + '/less/**/main.less')
-        //.pipe(plugins.cached('less'))
+    return gulp.src([paths.src + '/sass/**/*.scss', '!assets/sass/mixins/*.scss'])
+        //.pipe(plugins.cached('scss'))
         .pipe(plugins.plumber())
-        .pipe(plugins.less())
+        .pipe(plugins.sassChina({"bundleExec": true}))
         .pipe(gulp.dest(paths.src + '/css'))
         .pipe(plugins.minifyCss({
             compatibility: 'ie7'
@@ -80,7 +79,7 @@ gulp.task('less', function() {
         .pipe(reload({
             stream: true
         }))
-        .pipe(plugins.notify({ message: 'less task ok' }));
+        .pipe(plugins.notify({ message: 'sass task ok' }));
 });
 
 
@@ -123,7 +122,7 @@ gulp.task('images', function() {
             svgoPlugins: [{removeViewBox: false}],
             use: [pngquant()]
         }))
-        .pipe(gulp.dest(paths.dist + '/img' + paths.subdir))
+        .pipe(gulp.dest(paths.dist + '/img'))
         .pipe(plugins.notify({ message: 'images task ok' }));
 });
 
@@ -141,7 +140,7 @@ gulp.task('jshint', function() {
 
 
 gulp.task('clean:rev', function(){
-    gulp.src(paths.rev, {read: false})
+    return gulp.src(paths.rev, {read: false})
         .pipe(plugins.clean());
 })
 
@@ -158,7 +157,7 @@ gulp.task('rev', ['clean:rev'], function() {
 // 替换html 摸板中的文件为最新的MD5版本
 gulp.task('revcollector', ['rev'], function() {
 
-    return gulp.src([paths.rev + '/*.json', './pages/**/*.html'])
+    return gulp.src([paths.rev + '/*.json', paths.dist + '/**/*.html'])
         .pipe(plugins.revCollector({
             replaceReved: true,
             dirReplacements: {
@@ -168,6 +167,17 @@ gulp.task('revcollector', ['rev'], function() {
         .pipe(gulp.dest('rev'))
 })
 
+// 编译引入的组件
+gulp.task('fileinclude', function() {
+    return gulp.src(paths.html + '/**/*.html')
+        .pipe(plugins.fileInclude({
+            prefix: '@@',
+            basepath: '@file'
+        }))
+        .pipe(gulp.dest(paths.dist));
+});
+
+
 
 // webpack 打包js
 gulp.task("webpack", ['jshint'], function(callback) {
@@ -176,7 +186,7 @@ gulp.task("webpack", ['jshint'], function(callback) {
 
     return gulp.src('')
         .pipe(plugins.webpack(require('./webpack.config.js')))
-        .pipe(gulp.dest(paths.dist + '/js' + paths.subdir))
+        .pipe(gulp.dest(paths.dist + '/js'))
         .pipe(plugins.notify({ message: 'webpack task ok'}));
 });
 
@@ -190,13 +200,15 @@ gulp.task('serve', function() {
     });
 
     gulp.watch(paths.src + '/js/' + paths.subdir + '/**/*.js', ['webpack']);
-    gulp.watch(paths.less + '/**/*.less', ['less']);
-    gulp.watch(paths.html).on('change', reload);
+    gulp.watch(paths.less + '/**/*.scss', ['sass']);
+    gulp.watch(paths.html + '/**/*.html').on('change', reload);
 });
 
+// 发布，更新版本 任务
+gulp.task('release', ['revcollector']);
+
+// bulid 任务
+gulp.task('build', ['images', 'fileinclude']);
 
 // 默认任务
-gulp.task('build', ['images', 'revcollector']);
-
-// 默认任务
-gulp.task('default', ['serve', 'less', 'webpack']);
+gulp.task('default', ['sass', 'webpack', 'serve']);

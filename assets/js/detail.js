@@ -2,9 +2,9 @@ var $ = require('jquery');
 
 require('./common/vtab');
 
-require('../../widgets/site-topbar/topbar');
+require('../widgets/topbar/topbar');
 
-require('../../widgets/site-header/header');
+require('../widgets/header/header');
 
 
 $('#detail').vtab({
